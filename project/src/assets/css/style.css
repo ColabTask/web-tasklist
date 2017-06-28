@@ -65,7 +65,9 @@ html, body {
   margin: 0;
   height: 100%;
   overflow: hidden;
-  font-family: "Roboto";
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 14px;
   background-color: #FAFAFA; }
 
 .content {
@@ -381,8 +383,8 @@ a {
   width: 100%;
   padding: 20px; }
   .projects-list__title {
-    font-size: 20px;
-    font-weight: bold; }
+    font-size: 24px;
+    margin: 20px; }
     .projects-list__title__action {
       margin-left: 10px;
       display: inline; }
@@ -391,14 +393,21 @@ a {
     justify-content: flex-start;
     width: 100%; }
     .projects-list__content__project {
+      font-size: 14px;
+      color: #e78103;
+      text-decoration: none;
       display: inline-block;
-      border: 1px solid grey;
+      border: 1px solid lightgrey;
       border-radius: 3px;
       width: 250px;
       height: 60px;
       margin: 10px;
       padding: 10px;
-      background-color: #EEEEEE; }
+      background-color: #f2f2f2;
+      transition: cubic-bezier(0.47, 0, 0.745, 0.715) 0.15s; }
+      .projects-list__content__project:hover {
+        background-color: #e78103;
+        color: white; }
 
 .card {
   border: 1px solid lightgrey;
