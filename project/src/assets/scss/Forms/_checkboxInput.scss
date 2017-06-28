@@ -1,0 +1,53 @@
+$checkbox-width: 18px;
+
+input[type=checkbox]{
+  position: absolute;
+  left: -9999px;
+
+  &+ label{
+    position: relative;
+    display: block;
+    padding: 6px 10px 6px ($checkbox-width + 10);
+    cursor: pointer;
+
+    // Checkbox setup
+    &:before{
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin: (-$checkbox-width/2) 0 0;
+      width: $checkbox-width;
+      height: $checkbox-width;
+      border: 1px solid #3D3D3D;
+      border-radius: 50%;
+      text-align: center;
+    }
+  }
+
+  // Disabled
+  &:disabled{
+    &+ label{
+      cursor: not-allowed;
+
+      &:before{
+        background-position: (-$checkbox-width*2) 0;
+      }
+    }
+
+    // Disabled checked
+    &:checked + label{
+      &:before{
+        background-position: (-$checkbox-width*3) 0;
+      }
+    }
+  }
+
+  // Checked
+  &:checked + label{
+    &:before{
+      content: "\2713";
+    }
+  }
+}

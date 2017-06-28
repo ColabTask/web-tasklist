@@ -1,0 +1,151 @@
+<div class="page-project">
+  <ul class="navbar-project">
+    <li class="navbar-project__item navbar-project__item--title">
+      <div class="navbar-project__item__tags">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+        Tasks
+      </div>
+      <div class="navbar-project__item__action">
+        <a (click)="addTask()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
+    </li>
+    <li class="navbar-project__item">
+      <a class="navbar-project__item__title" routerLink="/project/{{project_id}}/{{today | date:'yyyy-MM-dd'}}">
+        Today
+      </a>
+    </li>
+    <li class="navbar-project__item">
+      <a class="navbar-project__item__title" routerLink="/project/{{project_id}}/{{week | date:'yyyy-MM-dd'}}">
+        This week
+      </a>
+    </li>
+    <!--
+    <li class="navbar-project__item navbar-project__item--title">
+      <div class="navbar-project__item__tags">
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        Labels
+      </div>
+      <div class="navbar-project__item__action">
+        <a href="">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
+    </li>
+    <li class="navbar-project__item" *ngFor="let label of labels">
+      <a class="navbar-project__item__title">
+        <div class="navbar-project__item__title__color" [style.background]="getLabelColor(label)">
+        </div>
+        {{label.name}}
+      </a>
+    </li>
+  -->
+    <li class="navbar-project__item navbar-project__item--title">
+      <div class="navbar-project__item__tags">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        Users
+      </div>
+      <div class="navbar-project__item__action">
+        <a href="">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
+    </li>
+    <li class="navbar-project__item" *ngFor="let user of users">
+      <a class="navbar-project__item__title">
+        {{user.username}}
+      </a>
+    </li>
+  </ul>
+  <div class="panel-right">
+    <div class="panel-right__inner">
+      <div *ngIf="!tasks">
+        No one task!
+      </div>
+      <div class="tasklist" *ngIf="tasks">
+        <div class="tasklist__title">
+          Tasks ({{today}})
+        </div>
+        <div class="tasklist__section" *ngFor="let date of dates">
+          <div class="tasklist__section__title">
+            {{date}}
+          </div>
+          <div class="tasklist__section__task" *ngFor="let task of tasks[date]" (click)="changeSelectedTask(task)" [class.tasklist__section__task--selected]="this.selectedTask && this.selectedTask.id == task.id">
+            <div class="tasklist__section__task__right">
+              <ul class="tasklist__section__task__right__options">
+                <li class="tasklist__section__task__right__options__option">
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                </li>
+                <li class="tasklist__section__task__right__options__option">
+                  <a (click)="deleteTask(task)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="tasklist__section__task__left">
+              <div class="tasklist__section__task__left__drag">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </div>
+              <div class="tasklist__section__task__left__checkbox">
+                <div class="form-checkbox">
+                  <input type="checkbox" id="{{task.id}}">
+                  <label for="{{task.id}}">{{task.name}}</label>
+                </div>
+              </div>
+            </div>
+          </div><!-- .task -->
+          </div><!-- .tasklist__section -->
+        </div>
+      </div>
+    </div><!-- .panel-right -->
+    <div class="panel-edit" *ngIf="selectedTask">
+      <div class="panel-edit__header">
+        <div class="panel-edit__header__title">
+          Edit task
+          <span *ngIf="selectedTask.id">(#{{selectedTask.id}})</span>
+        </div>
+        <a class="panel-edit__header__close" (click)="close()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="panel-edit__content">
+        <label for="name" class="form__label">Name</label>
+        <input id="name" type="text" class="form__input text-input" [(ngModel)]="selectedTask.name" />
+
+        <label for="priority" class="form__label">Priority</label>
+        <select id="priority" class="form__input select-input" [(ngModel)]="selectedTask.priority">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+
+        <label for="description" class="form__label">Description</label>
+        <textarea id="description" type="text" class="form__input textarea" [(ngModel)]="selectedTask.description">
+        </textarea>
+
+        <label for="end_date" class="form__label">End date</label>
+        <my-date-picker [options]="myDatePickerOptions"
+                (dateChanged)="onDateChanged($event)" [selDate]="selectedTask.getEndDate()"></my-date-picker>
+
+        <label for="assigned" class="form__label">Assigned</label>
+        <select id="assigned" class="form__input select-input" [(ngModel)]="selectedTask.assigned.id">
+          <option value="">None</option>
+          <option *ngFor="let user of users" value="{{user.id}}">{{user.username}}</option>
+        </select>
+
+        <div class="button button--full" (click)="updateTask()">
+          Save
+        </div>
+      </div>
+    </div>
+</div> <!-- .page-tasks -->

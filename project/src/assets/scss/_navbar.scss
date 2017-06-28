@@ -1,0 +1,97 @@
+.navbar {
+  display: flex;
+  align-items: center;
+
+  background: $bgcolor-navbar;
+
+  &__left {
+    width: 1000px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    &__logo {
+      padding-top: 5px;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      text-decoration: none;
+      color: white;
+      font-weight: 900;
+
+      &> img {
+        height: 40px;
+      }
+
+      &--responsive {
+        display: none; // Only for responsive mode
+      }
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      align-content: space-between;
+
+      &__link {
+        font-size: 14px;
+        padding: 0 10px;
+        margin: 10px;
+
+        color: white;
+        font-weight: 500;
+
+        text-decoration: none;
+
+        &:hover {
+          color: white;
+          background-color: #1D8BAF;
+          line-height: 30px;
+          text-decoration: none;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  &__right {
+    text-align: right;
+    width: 100%;
+    padding-right: 30px;
+
+    &__button {
+      padding: 5px;
+      text-decoration: none;
+      color: white;
+      border: 1px solid
+
+      &:hover {
+        border-color: white;
+      }
+    }
+  }
+
+  &__toogle {
+    line-height: 50px;
+    font-size: 35px;
+    padding-right: 30px;
+
+    cursor: pointer;
+
+    display: none; // Only for responsive mode
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .navbar__left__links, .navbar__right, .navbar__left__logo {
+    display: none;
+  }
+  .navbar__toogle, .navbar__left__logo--responsive {
+    display: block;
+  }
+}

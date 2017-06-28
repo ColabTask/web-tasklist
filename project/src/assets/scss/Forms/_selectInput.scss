@@ -1,0 +1,32 @@
+.select-input {
+    display: block;
+
+    width: 100%;
+    color: black;
+
+    padding: 10px 10px;
+    font-size: 14px;
+
+    border: 1px solid lightgray;
+    background-color: white;
+
+    &:focus {
+        & + .text-input__explanation {
+            opacity: 1;
+        }
+    }
+
+    &__explanation {
+        opacity: 0;
+
+        color: gray;
+        font-weight: $font-weight-bold;
+        font-size: 12px;
+
+        transition: all linear 200ms;
+        position: relative;
+        top: -25px;
+
+        height: 0;
+    }
+}

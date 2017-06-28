@@ -1,0 +1,67 @@
+.tasklist {
+  height: 100%;
+
+  &__title {
+    font-size: 22px;
+    color: #3D3D3D;
+    margin-bottom: 20px;
+  }
+
+  &__section {
+    margin-top: 30px;
+
+    &__title {
+      font-size: 16px;
+      color: red;
+      border-bottom: 1px solid lightgrey;
+    }
+
+    &__task {
+      padding-bottom: 10px;
+      padding-top: 10px;
+      border-bottom: 1px solid lightgrey;
+
+      &--selected {
+          background-color: #EEEEEE;
+      }
+
+      &__right {
+        float: right;
+
+        &__options {
+            display: inline;
+            list-style-type: none;
+            margin-right: 20px;
+
+            &__option {
+              display: inline;
+              padding: 0 10px;
+              border-right: 1px solid lightgrey;
+            }
+        }
+
+        &__date {
+          display: inline;
+          line-height:25px;
+        }
+      }
+
+      &__left {
+        display:flex;
+        align-items:center;
+        height:25px;
+
+        &__drag {
+            display: inline-block;
+            padding-top: 5px;
+            padding-left: 5px;
+            padding-right: 10px;
+        }
+
+        &__checkbox {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

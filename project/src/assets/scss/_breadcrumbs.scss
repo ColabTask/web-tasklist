@@ -1,0 +1,27 @@
+.breadcrumbs {
+  display: block;
+  color: $bgcolor-theme-main; //linear-gradient(to bottom, #FEFEFE, #F8F8F8);
+
+  padding: 5px 10px 5px 10px;
+  border-radius: 2px;
+
+  border: 1px solid lightgrey;
+  color: grey;
+
+  &__link {
+    display: inline-block;
+    cursor: pointer;
+
+    & a{
+      color: $bgcolor-theme-main;
+    }
+
+    &:before {
+      content: " > ";
+    }
+
+    &:first-child:before {
+      content: '';
+    }
+  }
+}

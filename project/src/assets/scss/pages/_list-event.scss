@@ -1,0 +1,46 @@
+.page-list-event {
+  margin-bottom: 60px;
+
+  .panel-nav {
+    width: 1000px;
+    height: 50px;
+    background-color: #1E8BB0;
+    margin: auto;
+
+    display: flex;
+
+    &__link {
+      text-decoration: none;
+      border: none;
+      line-height: 50px;
+      padding: 0 20px;
+
+      color: white;
+
+      transition: all $ease-inout-sine 200ms;
+
+      &:hover {
+        background-color: #43C2D3;
+      }
+
+      &--active {
+        background-color: #43C2D3;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .panel-list {
+    max-width: 975px;
+    margin: auto;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;;
+
+    .event {
+      width: 300px;
+      margin: 10px;
+    }
+  }
+}

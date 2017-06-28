@@ -1,0 +1,43 @@
+$bgcolor-navbar: #2D3E50; // Default : #404040
+$bgcolor-header: #1E88CF; // Default : #1E88CF
+
+/*- Redefined -*/
+
+$bgcolor-theme-main: #FAFAFA;
+$color-theme-main: black;
+
+$bgcolor-theme-header: #1c82c6;
+$color-theme-header: white;
+
+$bgcolor-theme-secondary: white;
+$color-theme-secondary: #313333;
+
+$bgcolor-theme-gray: #33465d;
+$color-theme-gray: white;
+
+$theme-color-mint: #14d49d;
+
+$font-weight-thin: 300;
+$font-weight-normal: 500;
+$font-weight-bold: 700;
+
+$color-clickable-input-region-border-hover: $color-theme-main;
+$color-clickable-input-region-hover: lighten($color-theme-main, 30%);
+
+$color-theme-gray--lighter: lighten($color-theme-gray, 10%);
+$color-theme-gray--lighter-2: lighten($color-theme-gray, 20%);
+$color-theme-gray--lighter-3: lighten($color-theme-gray, 30%);
+
+$font-weight-thin: 300;
+$font-weight-normal: 500;
+$font-weight-bold: 700;
+
+$color-theme-browser: #678FBE;
+
+$color-validation-error: #7F0000;
+$color-validation-fill: lighten($color-validation-error, 65%);
+
+$color-info-background: #d1e5ee;
+$color-info: #31708f;
+
+$color-theme-green: #00d59c;

@@ -1,0 +1,20 @@
+<div class="page-projects">
+  <div class="projects-list">
+    <div class="projects-list__title">
+      My projects
+      <div class="projects-list__title__action">
+        <a (click)="addProject()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="projects-list__content">
+      <a routerLink="/project/{{project.id}}" class="projects-list__content__project" *ngFor="let project of projects">
+        {{project.name}}
+      </a>
+      <a class="projects-list__content__project">
+        Add a new project...
+      </a>
+    </div>
+  </div>
+</div>

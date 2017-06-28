@@ -1,0 +1,45 @@
+<div class="navbar">
+  <div class="navbar__left">
+    <a routerLink="" class="navbar__left__logo">
+      ColabTask
+    </a>
+    <a routerLink="" class="navbar__left__logo navbar__left__logo--responsive">
+      <img src="../assets/images/logo-responsive.png">
+    </a>
+
+    <nav class="navbar__left__links">
+      <a class="navbar__left__links__link" routerLink="/projects">
+        <i class="fa fa-th-list" aria-hidden="true"></i>
+        Projects
+      </a>
+      <a class="navbar__left__links__link" href="#">
+        <i class="fa fa-magic" aria-hidden="true"></i>
+        Create a new project
+      </a>
+    </nav>
+  </div>
+
+  <div class="navbar__right" *ngIf="!isLoggedIn">
+    <a routerLink="/login" class="navbar__right__button">
+      Login
+    </a>
+  </div>
+  <div class="navbar__right" *ngIf="isLoggedIn">
+    <a routerLink="/logout" class="navbar__right__button">
+      Logout
+    </a>
+  </div>
+
+  <div class="navbar__toogle" onclick="openLeftNavbar();">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+  <simple-notifications [options]="options"></simple-notifications>
+</div> <!-- .content -->
+
+<div id="footer">
+    Powered by <a href="#">ColabTask</a> - 2017
+</div>

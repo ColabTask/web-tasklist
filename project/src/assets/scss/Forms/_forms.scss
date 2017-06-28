@@ -1,0 +1,34 @@
+﻿.form {
+    margin-left: auto;
+    margin-right: auto;
+
+    &__title {
+        font-weight: $font-weight-thin;
+        font-size: 25px;
+        margin-bottom: 10px;
+        color: $bgcolor-theme-main;
+        border-bottom: 2px solid $bgcolor-theme-main;
+    }
+
+    &__submit {
+        margin-top: 40px;
+    }
+
+    &__submit-condition {
+        margin-top: 10px;
+        text-align: center;
+        color: $color-theme-gray;
+        font-weight: $font-weight-thin;
+    }
+}
+
+.form__label + .form__input {
+    margin-bottom: 25px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .form__label{
+        margin-top: 20px;
+    }
+}
