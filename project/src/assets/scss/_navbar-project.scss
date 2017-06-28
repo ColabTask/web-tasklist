@@ -10,7 +10,7 @@
   list-style-type: none;
 
   color: white;
-  
+
   &__item {
     line-height: 30px;
     display: flex;
@@ -26,6 +26,8 @@
 
       padding-left: 40px;
 
+      transition: $ease-in-sine .15s;
+
       &__color {
         display: inline-block;
         width: 12px;
@@ -35,7 +37,8 @@
       }
 
       &:hover {
-        background-color: #636363;
+        background-color: $lightgrey;
+        color: $bgcolor-navbar;
       }
     }
 
