@@ -339,9 +339,7 @@ a {
 .tasklist {
   height: 100%; }
   .tasklist__title {
-    font-size: 22px;
-    color: #3D3D3D;
-    margin-bottom: 20px; }
+    font-size: 24px; }
   .tasklist__section {
     margin-top: 30px; }
     .tasklist__section__title {
@@ -353,9 +351,12 @@ a {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid lightgrey; }
+      border-bottom: 1px solid lightgrey;
+      cursor: pointer; }
+      .tasklist__section__task:hover {
+        background-color: #fedfb8; }
       .tasklist__section__task--selected {
-        background-color: #EEEEEE; }
+        background-color: #fedfb8; }
       .tasklist__section__task__right__options {
         display: flex;
         align-items: center;
@@ -383,8 +384,7 @@ a {
   width: 100%;
   padding: 20px; }
   .projects-list__title {
-    font-size: 24px;
-    margin: 20px; }
+    font-size: 24px; }
     .projects-list__title__action {
       margin-left: 10px;
       display: inline; }
@@ -821,7 +821,7 @@ input[type=checkbox] {
     padding: 20px;
     overflow: auto;
     border-left: 1px solid lightgrey;
-    background-color: #EEEEEE; }
+    background-color: #f2f2f2; }
     .page-project .panel-edit__header {
       display: flex; }
       .page-project .panel-edit__header__title {

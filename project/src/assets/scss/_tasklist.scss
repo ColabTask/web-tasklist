@@ -2,9 +2,7 @@
   height: 100%;
 
   &__title {
-    font-size: 22px;
-    color: #3D3D3D;
-    margin-bottom: 20px;
+    font-size: 24px;
   }
 
   &__section {
@@ -24,8 +22,14 @@
 
       border-bottom: 1px solid lightgrey;
 
+      cursor: pointer;
+
+      &:hover {
+          background-color: lighten($orange, 40);
+      }
+
       &--selected {
-          background-color: #EEEEEE;
+          background-color: lighten($orange, 40);
       }
 
       &__right {
