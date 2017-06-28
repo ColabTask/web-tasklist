@@ -13,6 +13,8 @@ import { routing }        from './app.routing';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, TaskService, ProjectService, LabelService, UserService } from './_services/index';
+
+import { FaqComponent } from './faq/index';
 import { LoginComponent } from './login/index';
 import { LogoutComponent } from './logout/index';
 import { ProjectComponent } from './project/index';
@@ -34,6 +36,7 @@ import { MyDatePickerModule } from 'mydatepicker';
         AppComponent,
         AlertComponent,
         ProjectComponent,
+        FaqComponent,
         LoginComponent,
         LogoutComponent,
         ProjectsComponent
