@@ -12,13 +12,16 @@
 
     &__title {
       font-size: 16px;
-      color: red;
+      color: $bgcolor-navbar;
       border-bottom: 1px solid lightgrey;
+      font-weight: 900;
     }
 
     &__task {
-      padding-bottom: 10px;
-      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+
       border-bottom: 1px solid lightgrey;
 
       &--selected {
@@ -26,17 +29,21 @@
       }
 
       &__right {
-        float: right;
-
         &__options {
-            display: inline;
+            display: flex;
+            align-items: center;
+
             list-style-type: none;
-            margin-right: 20px;
+            margin: 0 10px;
 
             &__option {
-              display: inline;
+              display: flex;
               padding: 0 10px;
               border-right: 1px solid lightgrey;
+            }
+
+            .tasklist__section__task__right__options__option + .tasklist__section__task__right__options__option {
+              border-right: none;
             }
         }
 
@@ -51,15 +58,11 @@
         align-items:center;
         height:25px;
 
-        &__drag {
-            display: inline-block;
-            padding-top: 5px;
-            padding-left: 5px;
-            padding-right: 10px;
-        }
+        padding: 10px 0;
 
-        &__checkbox {
+        &__title {
           display: inline-block;
+          margin-left: 10px;
         }
       }
     }

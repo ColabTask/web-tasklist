@@ -177,12 +177,11 @@ a {
     padding-right: 30px; }
     .navbar__right__button {
       padding: 5px;
-      background-color: white;
       text-decoration: none;
-      color: #2D3E50; }
-      .navbar__right__button:hover {
-        color: white;
-        background-color: #2D3E50; }
+      color: white;
+      border: 1px solid .navbar__right__button; }
+      .navbar__right__button :hover {
+        border-color: white; }
   .navbar__toogle {
     line-height: 50px;
     font-size: 35px;
@@ -345,38 +344,38 @@ a {
     margin-top: 30px; }
     .tasklist__section__title {
       font-size: 16px;
-      color: red;
-      border-bottom: 1px solid lightgrey; }
+      color: #2D3E50;
+      border-bottom: 1px solid lightgrey;
+      font-weight: 900; }
     .tasklist__section__task {
-      padding-bottom: 10px;
-      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid lightgrey; }
       .tasklist__section__task--selected {
         background-color: #EEEEEE; }
-      .tasklist__section__task__right {
-        float: right; }
-        .tasklist__section__task__right__options {
-          display: inline;
-          list-style-type: none;
-          margin-right: 20px; }
-          .tasklist__section__task__right__options__option {
-            display: inline;
-            padding: 0 10px;
-            border-right: 1px solid lightgrey; }
-        .tasklist__section__task__right__date {
-          display: inline;
-          line-height: 25px; }
+      .tasklist__section__task__right__options {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        margin: 0 10px; }
+        .tasklist__section__task__right__options__option {
+          display: flex;
+          padding: 0 10px;
+          border-right: 1px solid lightgrey; }
+        .tasklist__section__task__right__options .tasklist__section__task__right__options__option + .tasklist__section__task__right__options__option {
+          border-right: none; }
+      .tasklist__section__task__right__date {
+        display: inline;
+        line-height: 25px; }
       .tasklist__section__task__left {
         display: flex;
         align-items: center;
-        height: 25px; }
-        .tasklist__section__task__left__drag {
+        height: 25px;
+        padding: 10px 0; }
+        .tasklist__section__task__left__title {
           display: inline-block;
-          padding-top: 5px;
-          padding-left: 5px;
-          padding-right: 10px; }
-        .tasklist__section__task__left__checkbox {
-          display: inline-block; }
+          margin-left: 10px; }
 
 .projects-list {
   width: 100%;
@@ -458,6 +457,10 @@ a {
       text-align: center; }
       .navbar-project__item__action > a:hover {
         color: white; }
+
+.avatar {
+  width: 35px;
+  height: 35px; }
 
 input[type=checkbox] {
   position: absolute;

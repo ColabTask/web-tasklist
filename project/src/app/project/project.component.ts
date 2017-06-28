@@ -32,6 +32,7 @@ export class ProjectComponent implements OnInit {
         ariaLabelInputField: 'end_date',
         firstDayOfWeek: 'mo',
         sunHighlight: true,
+        showClearDateBtn: false
     };
 
     constructor(
@@ -51,7 +52,10 @@ export class ProjectComponent implements OnInit {
         this.today.setMinutes(0);
         this.today.setSeconds(0, 0);
         this.week = new Date();
-        this.week.setSeconds(this.week.getSeconds() + 604800);
+        this.week.setHours(0);
+        this.week.setMinutes(0);
+        this.week.setSeconds(0, 0);
+        this.week.setSeconds(this.week.getSeconds() + 86400*6);
 
         // Get project_id to filter
         this.project_id = params['id'];
@@ -72,11 +76,11 @@ export class ProjectComponent implements OnInit {
     addTaskToList(task) {
       if (task.end_date.getTime() >= this.today.getTime()) {
         // If task is in the future
-        if (this.dates.indexOf(task.getEndDate()) < 0) {
-          this.dates.push(task.getEndDate());
-          this.tasks[task.getEndDate()] = [];
+        if (this.dates.indexOf(task.getEndDateHuman()) < 0) {
+          this.dates.push(task.getEndDateHuman());
+          this.tasks[task.getEndDateHuman()] = [];
         }
-        this.tasks[task.getEndDate()].push(task);
+        this.tasks[task.getEndDateHuman()].push(task);
       }
       else {
         // If task end_date is outdated
@@ -96,10 +100,7 @@ export class ProjectComponent implements OnInit {
         .subscribe(
           data => {
             data.map((task) => {
-              console.log(task.end_date);
               let newTask = new Task(task);
-              console.log(newTask.end_date);
-              console.log(newTask.getEndDate());
               this.addTaskToList(newTask);
             })
           }

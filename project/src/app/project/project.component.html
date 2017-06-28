@@ -12,6 +12,11 @@
       </div>
     </li>
     <li class="navbar-project__item">
+      <a class="navbar-project__item__title" routerLink="/project/{{project_id}}">
+        All
+      </a>
+    </li>
+    <li class="navbar-project__item">
       <a class="navbar-project__item__title" routerLink="/project/{{project_id}}/{{today | date:'yyyy-MM-dd'}}">
         Today
       </a>
@@ -19,42 +24,6 @@
     <li class="navbar-project__item">
       <a class="navbar-project__item__title" routerLink="/project/{{project_id}}/{{week | date:'yyyy-MM-dd'}}">
         This week
-      </a>
-    </li>
-    <!--
-    <li class="navbar-project__item navbar-project__item--title">
-      <div class="navbar-project__item__tags">
-        <i class="fa fa-tags" aria-hidden="true"></i>
-        Labels
-      </div>
-      <div class="navbar-project__item__action">
-        <a href="">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-        </a>
-      </div>
-    </li>
-    <li class="navbar-project__item" *ngFor="let label of labels">
-      <a class="navbar-project__item__title">
-        <div class="navbar-project__item__title__color" [style.background]="getLabelColor(label)">
-        </div>
-        {{label.name}}
-      </a>
-    </li>
-  -->
-    <li class="navbar-project__item navbar-project__item--title">
-      <div class="navbar-project__item__tags">
-        <i class="fa fa-users" aria-hidden="true"></i>
-        Users
-      </div>
-      <div class="navbar-project__item__action">
-        <a href="">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-        </a>
-      </div>
-    </li>
-    <li class="navbar-project__item" *ngFor="let user of users">
-      <a class="navbar-project__item__title">
-        {{user.username}}
       </a>
     </li>
   </ul>
@@ -65,35 +34,29 @@
       </div>
       <div class="tasklist" *ngIf="tasks">
         <div class="tasklist__title">
-          Tasks ({{today}})
+          Tasks
         </div>
         <div class="tasklist__section" *ngFor="let date of dates">
           <div class="tasklist__section__title">
             {{date}}
           </div>
           <div class="tasklist__section__task" *ngFor="let task of tasks[date]" (click)="changeSelectedTask(task)" [class.tasklist__section__task--selected]="this.selectedTask && this.selectedTask.id == task.id">
+            <div class="tasklist__section__task__left">
+              <div class="tasklist__section__task__left__title">
+                {{task.name}}
+              </div>
+            </div>
             <div class="tasklist__section__task__right">
               <ul class="tasklist__section__task__right__options">
                 <li class="tasklist__section__task__right__options__option">
-                  <i class="fa fa-cog" aria-hidden="true"></i>
+                  <img class="avatar" src="assets/images/logo.png" *ngIf="task.assigned.id">
                 </li>
                 <li class="tasklist__section__task__right__options__option">
-                  <a (click)="deleteTask(task)">
+                  <a (click)="deleteTask(task)" style="color: #A94442;">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
-            </div>
-            <div class="tasklist__section__task__left">
-              <div class="tasklist__section__task__left__drag">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-              </div>
-              <div class="tasklist__section__task__left__checkbox">
-                <div class="form-checkbox">
-                  <input type="checkbox" id="{{task.id}}">
-                  <label for="{{task.id}}">{{task.name}}</label>
-                </div>
-              </div>
             </div>
           </div><!-- .task -->
           </div><!-- .tasklist__section -->
